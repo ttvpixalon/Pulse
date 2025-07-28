@@ -80,7 +80,6 @@
       animation: slideUp 0.5s ease forwards;
     }
 
-    /* Ladder Animation Delay */
     .social-links a:nth-child(1) { animation-delay: 0.5s; }
     .social-links a:nth-child(2) { animation-delay: 0.7s; }
     .social-links a:nth-child(3) { animation-delay: 0.9s; }
@@ -100,7 +99,8 @@
 <body>
 
   <div class="container">
-    <img src="your-pfp.jpg" alt="Profile Picture" class="profile-pic">
+    <!-- ✅ Updated to use assets folder -->
+    <img src="assets/your-pfp.jpg" alt="Profile Picture" class="profile-pic">
     <h1>Your Name</h1>
 
     <div class="social-links">
@@ -111,10 +111,15 @@
     </div>
   </div>
 
-  <!-- 🎵 Background Music -->
+  <!-- ✅ Background Music moved to assets folder -->
   <audio autoplay loop hidden>
-    <source src="your-music.mp3" type="audio/mpeg">
+    <source src="assets/your-music.mp3" type="audio/mpeg">
   </audio>
+
+  <!-- ✅ Background Video (optional, if you use one) -->
+  <video autoplay muted loop playsinline style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <source src="assets/your-video.mp4" type="video/mp4">
+  </video>
 
 </body>
 </html>
