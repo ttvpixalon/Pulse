@@ -128,28 +128,26 @@
     </div>
   </div>
 
-  <!-- 🎶 Hidden SoundCloud Player -->
-  <div id="sc-player" style="display:none;">
-    <iframe 
-      width="0" 
-      height="0" 
-      scrolling="no" 
-      frameborder="no" 
-      allow="autoplay" 
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2137959807&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
-    </iframe>
-  </div>
-
+  <!-- 🎶 SoundCloud Player will load dynamically -->
   <script>
     const loadingScreen = document.getElementById('loading-screen');
-    const scPlayer = document.getElementById('sc-player');
+    const container = document.querySelector('.container');
 
-    // User clicks to enter
     loadingScreen.addEventListener('click', () => {
+      // Fade out loading screen
       loadingScreen.style.opacity = '0';
       setTimeout(() => loadingScreen.remove(), 1000);
-      document.querySelector('.container').style.opacity = '1';
-      // SoundCloud iframe autoplay is already enabled, no JS play needed
+      container.style.opacity = '1';
+
+      // ✅ Inject SoundCloud iframe after user click (works on mobile)
+      const scIframe = document.createElement('iframe');
+      scIframe.width = "0";
+      scIframe.height = "0";
+      scIframe.frameBorder = "no";
+      scIframe.allow = "autoplay";
+      scIframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2137959807&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false";
+      scIframe.style.display = "none";
+      document.body.appendChild(scIframe);
     });
   </script>
 
