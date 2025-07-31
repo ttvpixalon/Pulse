@@ -116,6 +116,17 @@ h1, .music-section h2 {
 .soundcloud { border-color: #FF7700; box-shadow: 0 4px 15px rgba(255,119,0,0.5); }
 .soundcloud:hover { background: #FF7700; box-shadow: 0 0 20px #FF7700; color: #fff; }
 
+.applemusic {
+  border-color: #FA243C;
+  box-shadow: 0 4px 15px rgba(250,36,60,0.5);
+}
+.applemusic:hover {
+  background: #FA243C;
+  box-shadow: 0 0 20px #FA243C;
+  color: #fff;
+}
+
+
 /* ✅ Improved Side Menu */
 #menu-btn {
   position: fixed; top: 20px; right: 25px;
