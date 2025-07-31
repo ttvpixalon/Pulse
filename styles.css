@@ -4,18 +4,11 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #000; /* ✅ prevents white flash */
+  background: #000; /* ✅ stays black before load */
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
   color: #fff;
   text-align: center;
-  opacity: 0;
-  animation: pageFadeIn 1.2s ease forwards;
-}
-
-/* 🌟 Smooth Page Load Animation */
-@keyframes pageFadeIn {
-  to { opacity: 1; }
 }
 
 /* 🎥 Background Video */
@@ -26,7 +19,6 @@ video.bg-video {
   object-fit: cover;
   z-index: -3;
 }
-
 .overlay {
   position: fixed;
   top: 0; left: 0;
@@ -35,13 +27,20 @@ video.bg-video {
   z-index: -2;
 }
 
-/* Container */
-.container {
-  margin-top: 60px;
-  animation: fadeIn 1.5s ease forwards;
+/* ✅ Smooth Fade-In Elements */
+.container, .music-section {
   opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInSmooth 1.5s ease forwards;
 }
-@keyframes fadeIn { to { opacity: 1; } }
+.music-section { animation-delay: 0.3s; }
+
+@keyframes fadeInSmooth {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* PFP Glow */
 .pfp-wrapper {
@@ -63,15 +62,20 @@ video.bg-video {
 }
 
 /* Name Animation */
-h1 {
-  margin-top: 20px;
+h1, .music-section h2 {
   font-size: 36px;
   font-weight: 600;
   animation: neonFlicker 3s infinite;
+  margin-top: 20px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
+}
+.music-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 @keyframes neonFlicker {
-  0%,19%,21%,23%,25%,54%,56%,100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff; opacity: 1; }
-  20%,24%,55% { text-shadow: none; opacity: 0.6; }
+  0%,19%,21%,23%,25%,54%,56%,100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff; opacity:1; }
+  20%,24%,55% { text-shadow: none; opacity:0.6; }
 }
 
 /* ✅ Main Social Buttons */
@@ -170,11 +174,6 @@ h1 {
 .music-section {
   margin-top: 60px;
   padding: 20px;
-}
-.music-section h2 {
-  font-size: 28px;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
-  margin-bottom: 20px;
 }
 .track-grid {
   display: grid;
