@@ -198,3 +198,12 @@ h1, .music-section h2 {
   width: 100%;
   max-width: 500px;
 }
+/* ✅ Hide Scrollbar but keep scrolling */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
